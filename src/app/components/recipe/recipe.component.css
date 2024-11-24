@@ -1,0 +1,154 @@
+/* Block: recipe-container */
+
+.recipe-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Block: recipe-list (Container for Recipe Items) */
+
+.recipe-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+
+/* Element: recipe-item (Individual Recipe Item) */
+
+.recipe-list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+
+/* Element: recipe-item__image (Recipe Image) */
+
+.recipe-list__item__image {
+    width: 100%;
+    max-width: 150px;
+    /* Make image smaller */
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* Element: recipe-item__details (Recipe Details) */
+
+.recipe-list__item__details {
+    text-align: center;
+}
+
+
+/* Modifier: button (for remove or action button) */
+
+.recipe-list__item__button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recipe-list__item__button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Block: add-recipe-form (Form to Add New Recipe) */
+
+.add-recipe-form {
+    margin-top: 40px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+
+/* Element: add-recipe-form__label */
+
+.add-recipe-form__label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+/* Element: add-recipe-form__input */
+
+.add-recipe-form__input,
+.add-recipe-form__textarea,
+.add-recipe-form__button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.add-recipe-form__input:focus,
+.add-recipe-form__textarea:focus,
+.add-recipe-form__button:focus {
+    border-color: #007bff;
+}
+
+
+/* Element: add-recipe-form__textarea (For Ingredients and Instructions) */
+
+.add-recipe-form__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+/* Modifier: button (for submit action) */
+
+.add-recipe-form__button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.add-recipe-form__button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsive Grid Layout */
+
+
+/* Small Devices: Stacking Items */
+
+@media (min-width: 600px) {
+    .recipe-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Medium Devices: 3 Columns */
+
+@media (min-width: 768px) {
+    .recipe-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* Large Devices: 5 Columns */
+
+@media (min-width: 1024px) {
+    .recipe-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

@@ -1,0 +1,38 @@
+<div class="recipe-container">
+    <h2>Recipe List</h2>
+
+    <!-- Recipe List -->
+    <div class="recipe-list">
+        <div *ngFor="let recipe of recipes" class="recipe-list__item">
+            <img [src]="recipe.imageUrl" alt="{{ recipe.name }}" class="recipe-list__item__image">
+            <div class="recipe-list__item__details">
+                <h3>{{ recipe.name }}</h3>
+                <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+                <p><strong>Rating:</strong> {{ recipe.rating }} ⭐</p>
+            </div>
+            <button (click)="removeRecipe(recipe.id)" class="recipe-list__item__button">Remove</button>
+        </div>
+    </div>
+
+    <!-- Add Recipe Form -->
+    <h2>Add New Recipe</h2>
+    <form (ngSubmit)="addRecipe()" class="add-recipe-form">
+        <label class="add-recipe-form__label" for="name">Name:</label>
+        <input type="text" [(ngModel)]="newRecipe.name" name="name" class="add-recipe-form__input" required>
+
+        <label class="add-recipe-form__label" for="ingredients">Ingredients:</label>
+        <textarea [(ngModel)]="newRecipe.ingredients" name="ingredients" class="add-recipe-form__textarea" required></textarea>
+
+        <label class="add-recipe-form__label" for="instructions">Instructions:</label>
+        <textarea [(ngModel)]="newRecipe.instructions" name="instructions" class="add-recipe-form__textarea" required></textarea>
+
+        <label class="add-recipe-form__label" for="imageUrl">Image URL:</label>
+        <input type="url" [(ngModel)]="newRecipe.imageUrl" name="imageUrl" class="add-recipe-form__input" required>
+
+        <label class="add-recipe-form__label" for="rating">Rating:</label>
+        <input type="number" [(ngModel)]="newRecipe.rating" name="rating" class="add-recipe-form__input" min="1" max="5" required>
+
+        <button type="submit" [disabled]="!newRecipe.name || !newRecipe.ingredients || !newRecipe.instructions || !newRecipe.imageUrl || !newRecipe.rating" class="add-recipe-form__button">Add Recipe</button>
+    </form>
+</div>
